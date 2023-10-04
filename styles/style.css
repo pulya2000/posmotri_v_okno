@@ -169,6 +169,7 @@ button:hover {
 }
 
 .search-form__pseudo-checkbox {
+  position: relative;
   width: 19px;
   height: 19px;
   border: 1px solid #FFF;
