@@ -209,6 +209,7 @@ ol {
 }
 
 .content__details {
+  min-width: 404px;
   display: flex;
   flex-direction: column;
   gap: 21px;
@@ -271,7 +272,6 @@ ol {
 }
 
 .content__video-card {
-  width: 100%;
   display: flex;
 }
 
