@@ -59,7 +59,7 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  min-height: 34px;
+  padding: 5px 0;
 }
 
 .button:focus {
@@ -71,7 +71,7 @@ ol {
   outline-offset: 2px;
 }
 
-button:hover {
+.button:hover {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -85,7 +85,6 @@ button:hover {
 .content {
   display: flex;
   gap: 30px;
-  width: 100%;
   margin: auto;
 }
 
@@ -143,6 +142,11 @@ button:hover {
 .search-form__label:has([type='checkbox']):hover {
   cursor: pointer;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.search-form__label:has([type='checkbox']):active {
+  text-decoration: none;
 }
 
 .search-form__textfield {
@@ -150,7 +154,7 @@ button:hover {
   background-color: transparent;
   width: 225px;
   font-family: inherit; 
-  color: inherit;
+  color: rgba(255, 255, 255, 0.70);
   font-size: inherit;
   font-weight: 400;
   border: none;
@@ -161,6 +165,21 @@ button:hover {
 .search-form__textfield::placeholder {
   color: rgba(255, 255, 255, 0.70);
   font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__textfield:active {
+  outline: 1px solid #fff;
+  border: none;
+  padding: 2px;
 }
 
 .search-form__checkbox-list {
@@ -175,11 +194,13 @@ button:hover {
   border: 1px solid #FFF;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  background-image: url(../images/rectangle.svg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+ content: '';
+ position: absolute;
+ background-color: #fff;
+ inline-size: 15px;
+ block-size: 15px;
+ inset: 1px;
 }
 
 .search-form__submit-button {
@@ -191,7 +212,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 21px;
-  max-height: 530px;
 }
 
 .title {
@@ -214,13 +234,14 @@ button:hover {
 
 .content__list {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
   overflow-y: auto;
   height: 100%;
+  max-height: 297px;
 }
 
+.content__list-item:not(:last-child) {
+  margin-block-end: 30px;
+}
 .content__card-link {
   display: block;
   text-decoration: none;
@@ -239,6 +260,10 @@ button:hover {
   text-decoration: underline;
   color: #fff;
   text-underline-offset: 3px;
+}
+
+.content__card-link:active {
+  background-color: #545050;
 }
 
 .content__card-link_current {
